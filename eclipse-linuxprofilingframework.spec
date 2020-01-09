@@ -1,14 +1,14 @@
-%define src_repo_tag   R0_5_0
+%define src_repo_tag   R0_6_1
 %define eclipse_base   %{_libdir}/eclipse
 %define install_loc    %{_libdir}/eclipse/dropins/linuxprofilingframework
-%define qualifier      201003171651
+%define qualifier      201101131641
 
 # Package in %%{_libdir} but no native code so no debuginfo
 %global debug_package %{nil}
 
 Name:           eclipse-linuxprofilingframework
-Version:        0.3.0
-Release:        5%{?dist}
+Version:        0.6.1
+Release:        1%{?dist}
 Summary:        Eclipse Linux Tools Profiling Framework
 
 Group:          Development/Tools
@@ -22,10 +22,10 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 # Only x86 and x86_64 for RHEL
 ExclusiveArch: %{ix86} x86_64
 
-BuildRequires: eclipse-pde >= 1:3.5.0
-Requires: eclipse-platform >= 1:3.5.0
-BuildRequires: eclipse-cdt >= 1:6.0.0
-Requires: eclipse-cdt >= 1:6.0.0
+BuildRequires: eclipse-pde >= 1:3.6.0
+Requires: eclipse-platform >= 1:3.6.0
+BuildRequires: eclipse-cdt >= 1:7.0.0
+Requires: eclipse-cdt >= 1:7.0.0
 
 %description
 Plugins common to Eclipse Linux Tools profiling tools.
@@ -54,9 +54,13 @@ rm -rf %{buildroot}
 %{install_loc}
 
 %changelog
+* Thu Jan 13 2011 Severin Gehwolf <sgehwolf@redhat.com> 0.6.1-1
+- Resolves: #669461
+- Rebase to Linux Tools 0.6.1 version.
+
 * Fri Mar 19 2010 Jeff Johnston <jjohnstn@redhat.com> 0.3.0-5
 - Resolves: #575104
-- Rebase to Linux tools 0.5.0 version.
+- Rebase to Linux Tools 0.5.0 version.
 
 * Wed Dec 16 2009 Alexander Kurtakov <akurtako@redhat.com> 0.3.0-4
 - Correct x86 arch.
